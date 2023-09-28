@@ -13,7 +13,7 @@ int main(){
     scanf("%d", &b);
     suma = 0;
     while (b > 1){
-        if (b is odd){
+        if (b % 2 != 0){
             b--;
             suma += a;
         }
