@@ -1,11 +1,13 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main(int argc, char *argv[]){
     int nterm, fact = 1;
     float termino, e = 1;
 
-    printf("Términos: ");
-    scanf("%d", &nterm);
+    //printf("Términos: ");
+    //scanf("%d", &nterm);
+    nterm = atoi(argv[1]);
 
     for(int i = 1; i < nterm; i++){
         fact *= i; 
