@@ -9,30 +9,42 @@ struct punto{
 };
 
 
-struct punto aleatorio();
+void rellena(struct punto *p){
+    (*p).x = rand() / (double)RAND_MAX;
+    p->y = rand() / (double)RAND_MAX;
+} 
+
+struct punto crea(){
+    struct punto p;
+    p.x = rand() / (double)RAND_MAX;
+    p.y = rand() / (double)RAND_MAX;
+    return p;
+} 
 
 
 double distancia(struct punto p1, struct punto p2){
-    double dx = 0; // escribe las fórmula para dx y dy
-    double dy = 0;
-    return sqrt(dx*dx + dy*dy);
+    double d;
+    double dx = p2.x - p1.x;
+    double dy = p2.y - p1.y;
+    d = sqrt(dx*dx + dy*dy);
+    return d;
 }
 
 
 void arriba(struct punto *p){
-    // escribe el código
+    p->y += 0.1;
 }
 
 void abajo(struct punto *p){
-    // escribe el código
+    p->y -= 0.1;
 }
 
 void derecha(struct punto *p){
-    // escribe el código
+    p->x += 0.1;
 }
 
 void izquierda(struct punto *p){
-    // escribe el código
+    p->x -= 0.1;
 }
 
 void print(struct punto p){
@@ -41,13 +53,14 @@ void print(struct punto p){
 
 
 int main(){
-    struct punto p1, p2;
+    struct punto p1, p2, p3;
     p1.x = 0;
     p1.y = 0;
 
-    printf("x: "); scanf("%lf", &(p1.x));
-    printf("y: "); scanf("%lf", &(p1.y));
-    p2 = aleatorio();
+    printf("x: "); scanf("%lf", &p1.x);
+    printf("y: "); scanf("%lf", &p1.y);
+    rellena(&p2);
+    p3 = crea();
     print(p2);
 
     double d = distancia(p1, p2);
